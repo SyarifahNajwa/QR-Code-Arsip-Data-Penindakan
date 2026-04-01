@@ -6,13 +6,12 @@ async function tampilkanSemua() {
   const hasilElement = document.getElementById("hasil");
   
   try {
-    hasilElement.innerHTML = "Sedang mengambil semua data... ⏳";
+    hasilElement.innerHTML = "Sedang mengambil data... ⏳";
     
     const response = await fetch(url);
     const data = await response.json();
     
     if (data.length > 0) {
-      // Membuat tabel manual dengan atribut border agar garis terlihat tanpa CSS
       let htmlTabel = "<h3>Daftar Seluruh Data</h3>";
       htmlTabel += '<table border="1" cellpadding="5" cellspacing="0">';
       htmlTabel += `
@@ -61,12 +60,13 @@ async function cariData() {
   let inputId = inputElement.value.trim();
 
   if (!inputId) {
-    hasilElement.innerHTML = "Masukkan ID dulu ya ❗";
+    // Jika input kosong, tampilkan kembali semua data
+    tampilkanSemua();
     return;
   }
 
   try {
-    hasilElement.innerHTML = "Loading... ⏳";
+    hasilElement.innerHTML = "Mencari... ⏳";
 
     const response = await fetch(url);
     const data = await response.json();
@@ -75,16 +75,17 @@ async function cariData() {
     if (hasil) {
       hasilElement.innerHTML = `
         <h3>Hasil Pencarian:</h3>
-        ID: ${hasil.id} <br>
-        Tanggal: ${hasil.tanggal} <br>
-        Wilayah: ${hasil.wilayah} <br>
-        Kecamatan: ${hasil.kecamatan} <br>
-        Nama Toko: ${hasil.nama_toko} <br>
-        Jumlah: ${hasil.jumlah} <br>
-        No Surat: ${hasil.no_surat}
+        <button onclick="tampilkanSemua()">⬅ Kembali ke Semua Data</button><br><br>
+        <b>ID:</b> ${hasil.id} <br>
+        <b>Tanggal:</b> ${hasil.tanggal} <br>
+        <b>Wilayah:</b> ${hasil.wilayah} <br>
+        <b>Kecamatan:</b> ${hasil.kecamatan} <br>
+        <b>Nama Toko:</b> ${hasil.nama_toko} <br>
+        <b>Jumlah:</b> ${hasil.jumlah} <br>
+        <b>No Surat:</b> ${hasil.no_surat}
       `;
     } else {
-      hasilElement.innerHTML = "Data tidak ditemukan ❌";
+      hasilElement.innerHTML = `Data tidak ditemukan ❌ <br><br> <button onclick="tampilkanSemua()">Lihat Semua Data</button>`;
     }
 
   } catch (error) {
@@ -92,8 +93,12 @@ async function cariData() {
   }
 }
 
-// ================== ENTER UNTUK CARI ==================
+// ================== OTOMATIS JALAN SAAT BUKA WEB ==================
 document.addEventListener("DOMContentLoaded", function () {
+  // 1. Langsung panggil fungsi tampilkan semua
+  tampilkanSemua();
+
+  // 2. Setup event listener untuk Enter
   const input = document.getElementById("inputId");
   input.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
