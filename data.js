@@ -13,7 +13,7 @@ async function tampilkanSemua() {
     
     if (data.length > 0) {
       let htmlTabel = "<h3>Daftar Seluruh Data</h3>";
-      htmlTabel += '<table border="1" cellpadding="5" cellspacing="0">';
+      htmlTabel += '<table border="1" cellpadding="5" cellspacing="0" style="text-align: center;">';
       htmlTabel += `
         <thead>
           <tr>
@@ -21,7 +21,8 @@ async function tampilkanSemua() {
             <th>Tanggal</th>
             <th>Wilayah</th>
             <th>Kecamatan</th>
-            <th>Nama Toko</th>
+            <th>Jenis Pelanggaran</th>
+            <th>Nama Tempat</th>
             <th>Jumlah</th>
             <th>No Surat</th>
           </tr>
@@ -35,7 +36,8 @@ async function tampilkanSemua() {
             <td>${item.tanggal || ""}</td>
             <td>${item.wilayah || ""}</td>
             <td>${item.kecamatan || ""}</td>
-            <td>${item.nama_toko || ""}</td>
+            <td>${item.jenis_pelanggaran || ""}</td>
+            <td>${item.nama_tempat || ""}</td>
             <td>${item.jumlah || ""}</td>
             <td>${item.no_surat || ""}</td>
           </tr>`;
@@ -80,7 +82,8 @@ async function cariData() {
         <b>Tanggal:</b> ${hasil.tanggal} <br>
         <b>Wilayah:</b> ${hasil.wilayah} <br>
         <b>Kecamatan:</b> ${hasil.kecamatan} <br>
-        <b>Nama Toko:</b> ${hasil.nama_toko} <br>
+        <b>Jenis Pelanggaran:</b> ${hasil.jenis_pelanggaran} <br>
+        <b>Nama Tempat:</b> ${hasil.nama_tempat} <br>
         <b>Jumlah:</b> ${hasil.jumlah} <br>
         <b>No Surat:</b> ${hasil.no_surat}
       `;
