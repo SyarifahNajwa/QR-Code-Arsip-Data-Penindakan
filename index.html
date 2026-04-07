@@ -2,31 +2,31 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Data Operasi Penindakan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pencarian Arsip Map</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="header">
   <h1>Data Operasi Penindakan</h1>
 
-  <div class="search-box">
-    
-    <div class="search-row">
-      <input type="text" id="inputId" placeholder="Masukkan ID">
-      <button onclick="cariData()">Cari</button>
-    </div>
-
-    <small>Contoh ID: SBP1 / sbp1</small>
-
+  <div class="map-buttons" style="margin: 20px 0;">
+    <button onclick="tampilkanMap(1)" style="background-color: #ededed;">Isi Map 1</button>
+    <button onclick="tampilkanMap(2)" style="background-color: #ededed;">Isi Map 2</button>
+    <button onclick="tampilkanSemua()" style="background-color: #ededed;">Lihat Semua</button>
   </div>
-</div>
 
-<hr> 
+  <div class="search-container">
+    <input type="text" id="inputId" placeholder="Cari ID, Wilayah, No Surat...">
+    <button onclick="cariData()">Cari</button>
+  </div>
 
-<!--<div id="hasil">Memuat data... ⏳</div>-->
+  <hr>
+  
+  <div id="hasil" class="table-container">
+    <p>Silahkan cari data atau pilih Map di atas untuk melihat arsip.</p>
+  </div>
 
-<script src="data.js"></script>
-
+  <script src="data.js"></script>
 </body>
 </html>
