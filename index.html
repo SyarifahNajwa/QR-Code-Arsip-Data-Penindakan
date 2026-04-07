@@ -3,18 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Data Operasi Penindakan</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Data Operasi Penindakan</h1>
+<div class="header">
+  <h1>Data Operasi Penindakan</h1>
 
-<h2>Cari Data</h2>
-<h5>Contoh ID : SBP1/sbp1</h5>
-<input type="text" id="inputId" placeholder="Masukkan ID">
-<button onclick="cariData()">Cari</button>
+  <div class="search-box">
+    
+    <div class="search-row">
+      <input type="text" id="inputId" placeholder="Masukkan ID">
+      <button onclick="cariData()">Cari</button>
+    </div>
+
+    <small>Contoh ID: SBP1 / sbp1</small>
+
+  </div>
+</div>
 
 <hr> 
-<div id="hasil">Memuat data... ⏳</div> <script src="data.js"></script>
+
+<div id="hasil">Memuat data... ⏳</div>
+
+<script src="data.js"></script>
 
 </body>
 </html>

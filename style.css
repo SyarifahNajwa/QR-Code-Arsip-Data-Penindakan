@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* ← INI KUNCINYA */
+    margin-top: 20px;
+}
+
+/* Judul utama */
+.header h1 {
+    margin: 0;
+}
+
+/* Container kanan */
+.search-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* tetap kanan */
+}
+
+/* Baris input + tombol */
+.search-row {
+    display: flex;
+    gap: 10px;
+}
+
+/* Input */
+.search-row input {
+    width: 200px;
+    padding: 8px;
+}
+
+/* Contoh ID */
+.search-box small {
+    align-self: flex-start; /* ⬅️ INI KUNCINYA */
+    margin-top: 5px;
+    font-size: 12px;
+    color: #777;
+}
